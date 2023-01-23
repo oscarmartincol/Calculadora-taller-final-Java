@@ -17,9 +17,24 @@ public class Main {
             System.out.println(" % para obtener el módulo");
             System.out.println(" = para terminar");
             operacion = input.nextLine();
-            // llamado del método que define la operación segun lo ingresado por el usuario
-            System.out.println(calculadora.ejecutarOperacion(operacion));
-        }while (!operacion.equals("="));
+            if(!operacion.equals("=") && (operacion.equals("+") || operacion.equals("-") || operacion.equals("*")
+            || operacion.equals("/") || operacion.equals("%"))){
+                // llamado del método que define la operación segun lo ingresado por el usuario
+                System.out.println(calculadora.ejecutarOperacion(operacion));
+                System.out.println("Oprima enter para continuar.");
+                input.nextLine();
+            }else {
+                if(operacion.equals("=")){
+                    System.out.println(calculadora);
+                    System.out.println("Operación finalizada");
+                    System.out.println("Hasta pronto");
+                }else {
+                    System.out.println("Operación no válida");
+                    System.out.println("Oprima enter para continuar.");
+                    input.nextLine();
+                }
+            }
 
+        }while (!operacion.equals("="));
     }
 }
